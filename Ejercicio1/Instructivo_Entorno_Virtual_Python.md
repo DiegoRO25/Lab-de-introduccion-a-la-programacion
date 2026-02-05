@@ -82,23 +82,8 @@ pip install numpy
 
 ---
 
-## 📄 6. Generar requirements.txt
 
-```bash
-pip freeze > requirements.txt
-```
-
----
-
-## 🔁 7. Instalar dependencias desde requirements.txt
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## ⛔ 8. Desactivar el entorno virtual
+## ⛔ 6. Desactivar el entorno virtual
 
 ```bash
 deactivate
@@ -106,7 +91,7 @@ deactivate
 
 ---
 
-## 🚫 9. Evitar subir el entorno a GitHub
+## 🚫 7. Evitar subir el entorno a GitHub
 
 Agrega esto a tu `.gitignore`:
 
