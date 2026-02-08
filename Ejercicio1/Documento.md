@@ -1,6 +1,6 @@
 # 🐍 Creación de un Entorno Virtual en Python (Windows)
 
-Este instructivo explica paso a paso cómo crear, activar y usar un **entorno virtual (`venv`) en Python** utilizando **Windows, PowerShell y VS Code**.
+Este instructivo documenta paso a paso cómo crear, activar y utilizar un **entorno virtual (`venv`) en Python** usando **Windows, PowerShell y VS Code**, incluyendo **capturas reales del proceso**.
 
 ---
 
@@ -10,9 +10,9 @@ Un entorno virtual es un espacio aislado donde Python instala librerías **solo 
 ---
 
 ## ✅ Requisitos
-- Windows
-- Python 3.3 o superior
-- PowerShell
+- Windows  
+- Python 3.3 o superior  
+- PowerShell  
 - VS Code (recomendado)
 
 Verificar instalación de Python:
@@ -22,66 +22,85 @@ python --version
 
 ---
 
-## 📁 1. Entrar a la carpeta del proyecto
+## 📁 1. Ubicación del proyecto
+
+Primero, nos movemos a la carpeta donde trabajaremos el proyecto.
+
 ```powershell
 cd Desktop
 cd "Introduccion programacion"
 ```
 
-O en una sola línea:
-```powershell
-cd "C:\Users\TU_USUARIO\Desktop\Introduccion programacion"
-```
+📸 **Captura – Ubicación del proyecto en la terminal:**
+
+![Ubicación del proyecto](https://github.com/user-attachments/assets/732af662-72ce-4c1f-abab-30a9a3271407)
 
 ---
 
 ## 🧱 2. Crear el entorno virtual
+
+Desde la carpeta del proyecto, ejecutamos:
+
 ```powershell
 python -m venv env
 ```
 
-Esto creará una carpeta llamada:
+Esto crea una carpeta llamada:
 ```
 env/
 ```
+
+📸 **Captura – Entorno virtual creado correctamente:**
+
+![Creación del entorno virtual](https://github.com/user-attachments/assets/fa617869-8e33-4682-baff-1ac5ec9657af)
 
 ---
 
 ## 🔐 3. Permitir ejecutar scripts (solo la primera vez)
 
-Abrir **PowerShell como Administrador** y ejecutar:
+En Windows, PowerShell bloquea scripts por seguridad.  
+Abrimos **PowerShell como Administrador** y ejecutamos:
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Cuando pregunte, escribir:
+Confirmamos escribiendo:
 ```
 Y
 ```
-y presionar **Enter**.
 
 ---
 
 ## ▶️ 4. Activar el entorno virtual
-Desde la carpeta del proyecto:
+
+De regreso en la carpeta del proyecto:
+
 ```powershell
 env\Scripts\activate
 ```
 
-Si ves algo como esto, el entorno está activo:
+Si todo es correcto, el entorno aparece activo en la terminal:
+
 ```
 (env) PS C:\Users\...
 ```
 
+📸 **Captura – Entorno virtual activo:**
+
+![Entorno virtual activo](https://github.com/user-attachments/assets/ce57f71c-b2eb-4876-af65-66a1759d3bc4)
+
 ---
 
 ## 📦 5. Instalar librerías dentro del entorno
+
 Ejemplo con `numpy`:
+
 ```powershell
 pip install numpy
 ```
 
-Verificar que esté instalada:
+Verificar instalación:
 ```powershell
 pip show numpy
 ```
@@ -97,7 +116,7 @@ import numpy as np
 
 ### ✅ Correcto (en Python):
 
-#### Opción A: Dentro de un archivo `.py`
+#### Dentro de un archivo `.py`
 ```python
 import numpy as np
 
@@ -105,25 +124,9 @@ a = np.array([1, 2, 3])
 print(a)
 ```
 
-Ejecutar el archivo:
+Ejecutar:
 ```powershell
 python archivo.py
-```
-
-#### Opción B: Consola interactiva
-```powershell
-python
-```
-
-Luego:
-```python
-import numpy as np
-np.array([1, 2, 3])
-```
-
-Salir:
-```python
-exit()
 ```
 
 ---
@@ -140,21 +143,10 @@ Crear archivo con contenido:
 Set-Content main.py "print('Hola mundo')"
 ```
 
-Agregar contenido a un archivo existente:
-```powershell
-Add-Content main.py "print('Otra línea')"
-```
-
 ---
 
-## 📂 8. Crear carpetas
-```powershell
-mkdir scripts
-```
+## 📂 8. Ignorar el entorno virtual en Git
 
----
-
-## 🧹 9. Ignorar el entorno virtual en Git
 Crear un archivo `.gitignore` y agregar:
 ```gitignore
 env/
@@ -162,12 +154,13 @@ env/
 
 ---
 
-## 🧪 10. Comprobación final
+## 🧪 9. Comprobación final
+
 ```powershell
 where python
 ```
 
-Debe mostrar una ruta similar a:
+Debe apuntar a:
 ```
 ...\Introduccion programacion\env\Scripts\python.exe
 ```
@@ -175,8 +168,9 @@ Debe mostrar una ruta similar a:
 ---
 
 ## ✅ Conclusión
-- Los entornos virtuales permiten trabajar de forma organizada
-- Las librerías se instalan solo para cada proyecto
-- Es una práctica esencial en proyectos reales de Python
 
-🚀 ¡Entorno virtual configurado correctamente!
+- El entorno virtual permite trabajar de forma ordenada y profesional  
+- Las librerías se instalan solo para el proyecto  
+- Es una práctica esencial en el desarrollo con Python  
+
+🚀 **Entorno virtual configurado correctamente y documentado con evidencias visuales**
