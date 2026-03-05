@@ -1,0 +1,22 @@
+intentos = 0
+
+while intentos < 3:
+
+    usuario = input("Ingresa tu nombre de usuario: ")
+    contraseña = input("Ingresa la contraseña: ")
+
+
+    if len(usuario) == 0:
+        print("El nombre de usuario no debe estar vacío")
+        continue
+
+    elif " " in usuario:
+        print("El nombre de usuario no debe contener espacios")
+        continue
+
+    elif len(contraseña) < 8:
+        print("La contraseña debe tener al menos 8 caracteres")
+        continue
+
+    elif usuario == "admin" and contraseña == "Admin2026":
+        print("Se ingresó correctamente al sistema")
