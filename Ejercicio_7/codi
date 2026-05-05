@@ -1,0 +1,50 @@
+def ejercicio1():
+    palabra =input("Escribe una palabra: ")
+    for i in range(0, 10):
+        print(palabra)
+
+def ejercicio2():
+    edad = int(input("Escribe tu edad: "))
+    for i in range(0, (edad + 1)):
+        print(i)
+
+def ejercicio3():
+    numeros = int(input("Escribe un número entero y positivo: "))
+    resultado = ""
+    if numeros < 0:
+        print("El número no es positivo")
+    for i in range(0, numeros + 1):
+        if i % 2 != 0:
+            resultado += str(i) + ","
+    lista_res = resultado.split(",")
+    lista_res.pop()
+    print(lista_res)
+
+def ejercicio4():
+    numero = int(input("Ingresa un número entero positivo: "))
+
+    if numero < 0:
+        print("El número debe ser positivo")
+    else:
+        while numero >= 0:
+            if numero == 0:
+                print(numero)
+        else:
+            print(numero, end=", ")
+        numero -= 1
+    
+    ciclosbucles = input("Selecciona un ejercicio: ")
+
+    match ciclosbucles:
+        case "1":
+            print("Ejercicio 1")
+            ejercicio1()
+        case "2":
+            print("Ejercicio 2")
+            ejercicio2()
+        case "3":
+            print("Ejercicio 3")
+            ejercicio3()
+        case "4":
+            print("Ejercicio 4")
+            ejercicio4()
