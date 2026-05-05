@@ -1,0 +1,92 @@
+intentos = 0
+
+while intentos < 3:
+
+    usuario = input("Ingresa tu nombre de usuario: ")
+    contraseña = input("Ingresa la contraseña: ")
+
+  
+    if not usuario:
+        print("El nombre de usuario no debe estar vacío")
+        continue
+
+    if " " in usuario:
+        print("El nombre de usuario no debe contener espacios")
+        continue
+
+    if len(contraseña) < 8:
+        print("La contraseña debe tener al menos 8 caracteres")
+        continue
+
+    # Acceso correcto
+    if usuario == "admin" and contraseña == "Admin2026":
+        print("Se ingresó correctamente al sistema")
+
+        acceso = True
+        while acceso:
+
+            print("\nSeleccione una opción")
+            print("1.- Clasificar números")
+            print("2.- Categoría de edad")
+            print("3.- Calcular tarifa final")
+            print("4.- Cerrar sesión")
+            print("5.- Salir")
+
+            opcion = input("Ingrese la opción: ")
+
+            match opcion:
+                case "1":
+                    print("Entraste a Clasificar números")
+                    numero = int(input("Ingresa un número: "))
+
+                    if numero > 0:
+                        print("El número es positivo")
+                        print("El número es par" if numero % 2 == 0 else "El número es impar")
+                    elif numero < 0:
+                        print("El número es negativo")
+                        print("El número es impar")
+                    else:
+                        print("El número es cero")
+
+                case "2":
+                    print("Entraste a Categoría de edad")
+                    edad = int(input("Ingresa tu edad: "))
+
+                    match edad:
+                        case e if 0 <= e <= 12:
+                            print("Eres un niño")
+                        case e if 13 <= e <= 17:
+                            print("Eres un adolescente")
+                        case e if 18 <= e <= 64:
+                            print("Eres un adulto")
+                        case e if 65 <= e <= 120:
+                            print("Eres un adulto mayor")
+                        case _:
+                            print("Edad no válida")
+
+                    identificacion = input("¿Tienes identificación oficial? (s/n): ")
+                    licencia = input("¿Tienes licencia de conducir? (s/n): ")
+
+                    print("Puedes registrarte en el sistema" if edad >= 13 else "No puedes registrarte")
+                    print("Puedes comprar sin tutor" if edad >= 18 else "Necesitas tutor")
+
+                case "3":
+                    print("Entraste a Calcular tarifa final")
+
+                case "4":
+                    print("Sesión cerrada")
+                    acceso = False
+
+                case "5":
+                    print("Saliendo del programa...")
+                    acceso = False
+                    intentos = 3
+
+                case _:
+                    print("Opción no válida")
+
+        break 
+
+    else:
+        intentos += 1
+        print(f"Intento número: {intentos}")
