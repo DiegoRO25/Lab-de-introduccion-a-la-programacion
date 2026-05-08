@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scanner móvil</title>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body style="font-family: Arial; text-align:center; padding:30px;">
+
+    <h1>Escanear producto</h1>
+
+    <div id="reader" style="width:350px; margin:auto;"></div>
+
+    <script>
+
+        function enviarCodigo(codigo) {
+
+            fetch("/guardar", {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    codigo: codigo
+                })
+            })
+
+            .then(response => response.json())
+
+            .then(data => {
+                alert("Código enviado: " + data.codigo);
+            })
+
+            .catch(error => {
+                console.log(error);
+                alert(error);
+            });
+        }
+
+        const html5QrCode = new Html5Qrcode("reader");
+
+        Html5Qrcode.getCameras()
+
+        .then(devices => {
+
+            console.log(devices);
+
+            if (devices && devices.length > 0) {
+
+                html5QrCode.start(
+
+                    devices[devices.length - 1].id,
+
+                    {
+                        fps: 10,
+                        qrbox: 250
+                    },
+
+                    (decodedText) => {
+
+                        console.log(decodedText);
+
+                        enviarCodigo(decodedText);
+                    }
+                );
+
+            } else {
+
+                alert("No se encontraron cámaras");
+            }
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+            alert("Error al abrir cámara: " + error);
+        });
+
+    </script>
+
+</body>
+</html>
